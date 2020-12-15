@@ -1,0 +1,59 @@
+﻿@model IEnumerable<rosy_bookstore.product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.p_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category.cat_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category.cat_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.p_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.p_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.p_id })
+            @Html.ActionLink("Add Images", "Images", new { id = item.p_id })
+            
+        </td>
+    </tr>
+}
+
+</table>
